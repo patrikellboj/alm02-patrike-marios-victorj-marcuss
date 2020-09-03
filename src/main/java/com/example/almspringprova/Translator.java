@@ -17,8 +17,8 @@ public class Translator {
     public Translator() {}
 
     public Translator(Person Person) {
-        getInputFromUser();                 //  creates this.person
-        this.randomValue = getRandomValue();                   //  create this.randomValue
+        getInputFromUser();                                 //  creates this.person
+        this.randomValue = getRandomValue();                 //  create this.randomValue
         this.result =  selectMsgAccordingToRule();         //  create this.result through getMsgFromProperties
     }
 
