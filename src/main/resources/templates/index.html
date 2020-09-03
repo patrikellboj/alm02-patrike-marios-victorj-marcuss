@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NewPerson</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body class="body">
+
+
+<table class="formTable">
+
+    <form action="#" th:action="@{/}" th:object="${theperson}">
+
+        <tr>
+            <td>
+                Name
+            </td>
+
+            <td>
+                <input type="text" th:field="*{name}">
+
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                Age
+            </td>
+
+            <td>
+                <input type="text" th:field="*{age}">
+
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                Gender
+            </td>
+
+            <td>
+                <input type="text" th:field="*{gender}">
+
+            </td>
+        </tr>
+
+
+        <br>
+
+        <button class="submit" type="submit">Get Fortune</button>
+
+        <br>
+
+    </form>
+
+
+</table>
+
+
+</body>
+</html>
