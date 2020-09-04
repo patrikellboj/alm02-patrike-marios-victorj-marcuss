@@ -1,5 +1,7 @@
 package com.example.almspringprova;
 
+import org.springframework.stereotype.Component;
+
 import javax.swing.*;
 import java.io.FileInputStream;
 import java.util.Arrays;
@@ -7,7 +9,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
-
+@Component
 public class Translator {
     Person person = new Person();
     int randomValue;
@@ -19,7 +21,7 @@ public class Translator {
     public Translator(Person Person) {
         getInputFromUser();                 //  creates this.person
         this.randomValue = getRandomValue();                   //  create this.randomValue
-        this.result =  selectMsgAccordingToRule();         //  create this.result through getMsgFromProperties
+        //this.result =  selectMsgAccordingToRule();         //  create this.result through getMsgFromProperties
     }
 
 
@@ -39,13 +41,13 @@ public class Translator {
     }
 
 
-    public String selectMsgAccordingToRule(){
+    public String selectMsgAccordingToRule(Person person){
         String selectedList = "";
         if (person.getGender().equals("female"))
             selectedList="female_msg";
         else
             selectedList="male_msg";
-        int element = this.randomValue;
+        int element = getRandomValue();
         String result= getMsgFromProperties(selectedList, element);
         return result;
     }

@@ -23,9 +23,15 @@ class FortuneController {
     public String GoToHomePage(@ModelAttribute("theperson") Person person) {
         //Person person = new Person();
         // model.addAttribute("theperson", person);
+        //String result = translator.selectMsgAccordingToRule(person);
+        //System.out.println(result);
+        return "index";
+    }
+
+    @GetMapping("/fortune")
+    public String getfortune(@ModelAttribute("theperson") Person person) {
         String result = translator.selectMsgAccordingToRule(person);
         System.out.println(result);
-
         return "index";
     }
 
