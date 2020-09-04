@@ -1,5 +1,7 @@
  pipeline{
-    agent any
+    agent {
+        docker{ image 'rasilva1986/java-maven:alm' }
+    }
 
     stages{
         stage('Build'){
@@ -17,20 +19,6 @@
                 sh 'mvn test'
             }
 
-        }
-
-        stage('Deploy'){
-            steps{
-                echo 'Deploying..'
-                sh 'mvn spring-boot:run'
-            }
-
-            post {
-                always{
-                    echo 'saving artifacts...'
-                    archiveArtifacts artifacts: 'target/*.jar', onlyIfSuccessful: true
-                }
-            }
         }
     }
 }
