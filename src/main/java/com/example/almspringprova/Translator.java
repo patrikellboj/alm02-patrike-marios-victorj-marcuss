@@ -11,35 +11,6 @@ import java.util.Random;
 
 @Component
 public class Translator {
-    Person person = new Person();
-    int randomValue;
-    String result;
-
-
-    public Translator() {}
-
-    public Translator(Person Person) {
-        getInputFromUser();                 //  creates this.person
-        this.randomValue = getRandomValue();                   //  create this.randomValue
-        //this.result =  selectMsgAccordingToRule();         //  create this.result through getMsgFromProperties
-    }
-
-
-    public void getInputFromUser(){
-        String name = JOptionPane.showInputDialog("Name? ");
-        String age = JOptionPane.showInputDialog("Age? ");
-        String gender = JOptionPane.showInputDialog("Gender? ");
-
-        this.person = new Person(name, age, gender);
-    }
-
-
-    public int getRandomValue() {
-        Random random = new Random();
-        int randomValue = random.nextInt(10);
-        return randomValue; //
-    }
-
 
     public String selectMsgAccordingToRule(Person person){
         String selectedList = "";
@@ -53,7 +24,14 @@ public class Translator {
     }
 
 
-    private String getMsgFromProperties(String selectedList, int element) {
+    public int getRandomValue() {
+        Random random = new Random();
+        int randomValue = random.nextInt(10);
+        return randomValue; //
+    }
+
+
+    public String getMsgFromProperties(String selectedList, int element) {
         Properties properties = new Properties();
 
         try {
@@ -66,10 +44,6 @@ public class Translator {
         String list = properties.getProperty(selectedList);
         List<String> elements = Arrays.asList(list.split(","));
         return elements.get(element);
-
     }
 
-    public String getResult() {
-        return result;
-    }
 }
