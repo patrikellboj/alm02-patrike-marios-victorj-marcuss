@@ -9,7 +9,6 @@
                 echo 'Deploying..'
                 sh 'mvn spring-boot:run'
             }
-
             post {
                 always{
                     echo 'saving artifacts...'
