@@ -18,7 +18,6 @@
                 echo 'testing...'
                 sh 'mvn test'
             }
-
         }
     }
 }
