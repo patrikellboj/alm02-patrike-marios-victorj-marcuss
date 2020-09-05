@@ -19,14 +19,14 @@ public class Translator {
         else
             selectedList="male_msg";
         int element = getRandomValue();
-        String result= getMsgFromProperties(selectedList, element);
+        String result = person.getName() + " " + getMsgFromProperties(selectedList, element);
         return result;
     }
 
 
     public int getRandomValue() {
         Random random = new Random();
-        int randomValue = random.nextInt(10);
+        int randomValue = random.nextInt(5);
         return randomValue; //
     }
 
@@ -40,7 +40,7 @@ public class Translator {
         catch (Exception e){
             System.out.println("File not found");
         }
-      //take the properties string (it's just a one long string), splitter it by "," and then get the right msg
+        //take the properties string (it's just a one long string), splitter it by "," and then get the right msg
         String list = properties.getProperty(selectedList);
         List<String> elements = Arrays.asList(list.split(","));
         return elements.get(element);
