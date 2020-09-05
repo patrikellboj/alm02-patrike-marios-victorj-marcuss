@@ -11,10 +11,9 @@
             }
         }
 
-        stage('Publish reports') {
+        stage('Create and publish test reports') {
             steps {
             echo 'Publishing test reports'
-            //sh ''
             }
             post {
                 always {
@@ -40,7 +39,7 @@
                     ])
                 }
 
-                // Om det tidigare lyckades. Spara undan .war filen
+                // Om det tidigare lyckades. Spara undan .jar filen
                 success {
                     archive 'target/*.jar'
                 }
