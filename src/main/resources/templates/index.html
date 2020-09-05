@@ -42,7 +42,12 @@
             </td>
 
             <td>
-                <input type="text" th:field="*{gender}">
+                <!-- <input type="text" th:field="*{gender}"> -->
+                <select th:field="*{gender}">
+                    <option th:value="'other'" th:text="Other"></option>
+                    <option th:value="'female'" th:text="Female"></option>
+                    <option th:value="'male'" th:text="Male"></option>
+                </select>
 
             </td>
         </tr>
