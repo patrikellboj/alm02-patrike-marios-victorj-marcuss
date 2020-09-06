@@ -14,7 +14,7 @@ public class Translator {
 
 
     String separator = System.getProperty("file.separator");
-    private String propertiesPath = "src" + separator + "main" + separator + "resources" + separator +  "fortune.properties";
+    private String propertiesPath = "fortune.properties";
 
     public String selectMsgAccordingToRule(Person person){
         String selectedList = "";
