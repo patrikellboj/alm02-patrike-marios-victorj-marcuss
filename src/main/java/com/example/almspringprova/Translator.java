@@ -15,11 +15,9 @@ import java.util.Random;
 @Component
 public class Translator {
 
+    String propertiesPath = "/fortune.properties";
 
-    String separator = System.getProperty("file.separator");
-    private String propertiesPath = "src" + separator + "main" + separator + "resources" + separator +  "fortune.properties";
-
-    public String selectMsgAccordingToRule(Person person){
+    public String selectMsgAccordingToRule(Person person) {
         String selectedList = "";
         if (person.getGender().equalsIgnoreCase("female"))
             selectedList="female_msg";
@@ -40,13 +38,13 @@ public class Translator {
 
     public String getPropertiesRightListAsString(String selectedList) { // we have many list fortune we have to select the right one!
         Properties properties = new Properties();
-        InputStream in = getClass().getResourceAsStream("/fortune.properties");
+        InputStream in = getClass().getResourceAsStream(propertiesPath);
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
         try {
             properties.load(reader);
         }
-        catch (Exception e){
+        catch (Exception e) {
             System.out.println("Properties file not found");
         }
         //take the properties string (it's just a one long string), splitter it by "," and then get the right msg
