@@ -1,7 +1,5 @@
  pipeline{
-    agent {
-        docker{ image 'rasilva1986/java-maven:alm' }
-    }
+    agent any
 
     stages{
         stage('Deploy'){
