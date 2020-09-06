@@ -24,8 +24,7 @@ public class Translator {
             selectedList="male_msg";
         int element = getRandomValue();
         String rightList= getPropertiesRightListAsString(selectedList);
-        String result = splitStringAndGetRightElement(rightList,element);
-        return result;
+        return person.getName() + " " + splitStringAndGetRightElement(rightList,element);
     }
 
 
