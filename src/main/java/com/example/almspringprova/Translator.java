@@ -3,7 +3,9 @@ package com.example.almspringprova;
 
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
@@ -13,7 +15,7 @@ import java.util.Random;
 public class Translator {
 
 
-    String separator = System.getProperty("file.separator");
+    private String separator = System.getProperty("file.separator");
     private String propertiesPath = "src" + separator + "main" + separator + "resources" + separator + "fortune.properties";
 
     public String selectMsgAccordingToRule(Person person){
@@ -37,9 +39,15 @@ public class Translator {
 
     public String getPropertiesRightListAsString(String selectedList) { // we have many list fortune we have to select the right one!
         Properties properties = new Properties();
+        File propertiesFile = new File(propertiesPath);
 
         try {
-            properties.load(new FileInputStream(propertiesPath));
+            if(propertiesFile.exists()) {
+                properties.load(new FileInputStream(propertiesPath));
+            }
+            else {
+                properties.load(new FileInputStream("alm-spring-prova-0.0.1-SNAPSHOT" + separator + "BOOT-INF" + separator + "classes" + separator + "fortune.properties"));
+            }
         }
         catch (Exception e){
             System.out.println("Properties file not found");
