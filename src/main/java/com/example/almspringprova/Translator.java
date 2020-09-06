@@ -33,9 +33,10 @@ public class Translator {
 
     public String getMsgFromProperties(String selectedList, int element) {
         Properties properties = new Properties();
+        String separator = System.getProperty("file.separator");
 
         try {
-            properties.load(new FileInputStream("src\\main\\resources\\fortune.properties"));
+            properties.load(new FileInputStream("src" + separator + "main" + separator + "resources" + separator +  "fortune.properties"));
         }
         catch (Exception e){
             System.out.println("File not found");

@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 class FortuneController {
     Translator translator;
 
-
-
 //--------------------------------------
     @Autowired
     public FortuneController(Translator translator) {
@@ -27,6 +25,7 @@ class FortuneController {
     @GetMapping("/fortune")
     public String getfortune(@ModelAttribute("theperson") Person person) {
         String result = translator.selectMsgAccordingToRule(person);
+        //return "redirect:/?response=TEST";
         return "redirect:/?response=" + result;
     }
 }
