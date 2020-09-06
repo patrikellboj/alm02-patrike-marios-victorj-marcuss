@@ -1,5 +1,7 @@
 package com.example.almspringprova;
 
+import org.springframework.stereotype.Component;
+
 import javax.swing.*;
 import java.io.FileInputStream;
 import java.util.Arrays;
@@ -7,28 +9,18 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
-
+@Component
 public class Translator {
-    Person person = new Person();
-    int randomValue;
-    String result;
 
-
-    public Translator() {}
-
-    public Translator(Person Person) {
-        getInputFromUser();                 //  creates this.person
-        this.randomValue = getRandomValue();                   //  create this.randomValue
-        this.result =  selectMsgAccordingToRule();         //  create this.result through getMsgFromProperties
-    }
-
-
-    public void getInputFromUser(){
-        String name = JOptionPane.showInputDialog("Name? ");
-        String age = JOptionPane.showInputDialog("Age? ");
-        String gender = JOptionPane.showInputDialog("Gender? ");
-
-        this.person = new Person(name, age, gender);
+    public String selectMsgAccordingToRule(Person person){
+        String selectedList = "";
+        if (person.getGender().equals("female"))
+            selectedList="female_msg";
+        else
+            selectedList="male_msg";
+        int element = getRandomValue();
+        String result= getMsgFromProperties(selectedList, element);
+        return result;
     }
 
 
@@ -39,19 +31,7 @@ public class Translator {
     }
 
 
-    public String selectMsgAccordingToRule(){
-        String selectedList = "";
-        if (person.getGender().equals("female"))
-            selectedList="female_msg";
-        else
-            selectedList="male_msg";
-        int element = this.randomValue;
-        String result= getMsgFromProperties(selectedList, element);
-        return result;
-    }
-
-
-    private String getMsgFromProperties(String selectedList, int element) {
+    public String getMsgFromProperties(String selectedList, int element) {
         Properties properties = new Properties();
 
         try {
@@ -64,10 +44,6 @@ public class Translator {
         String list = properties.getProperty(selectedList);
         List<String> elements = Arrays.asList(list.split(","));
         return elements.get(element);
-
     }
 
-    public String getResult() {
-        return result;
-    }
 }

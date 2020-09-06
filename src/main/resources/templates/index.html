@@ -10,7 +10,7 @@
 
 <table class="formTable">
 
-    <form action="#" th:action="@{/}" th:object="${theperson}">
+    <form action="#" th:action="@{/fortune}" th:object="${theperson}">
 
         <tr>
             <td>
@@ -59,6 +59,6 @@
 
 </table>
 
-
+<p id="msg" th:text="${param.response}">Test</p>
 </body>
 </html>
