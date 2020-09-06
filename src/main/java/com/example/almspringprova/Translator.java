@@ -12,7 +12,9 @@ import java.util.Random;
 @Component
 public class Translator {
 
-    private String propertiesPath = "src\\main\\resources\\fortune.properties";
+
+    String separator = System.getProperty("file.separator");
+    private String propertiesPath = "src" + separator + "main" + separator + "resources" + separator +  "fortune.properties";
 
     public String selectMsgAccordingToRule(Person person){
         String selectedList = "";
