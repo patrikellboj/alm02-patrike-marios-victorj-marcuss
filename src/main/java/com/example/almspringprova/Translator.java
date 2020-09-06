@@ -15,7 +15,7 @@ import java.util.Random;
 @Component
 public class Translator {
 
-    String propertiesPath = "/fortune.properties";
+    String propertiesFile = "/fortune.properties";
 
     public String selectMsgAccordingToRule(Person person) {
         String selectedList = "";
@@ -38,10 +38,10 @@ public class Translator {
 
     public String getPropertiesRightListAsString(String selectedList) { // we have many list fortune we have to select the right one!
         Properties properties = new Properties();
-        InputStream in = getClass().getResourceAsStream(propertiesPath);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
         try {
+            InputStream in = getClass().getResourceAsStream(propertiesFile);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             properties.load(reader);
         }
         catch (Exception e) {
