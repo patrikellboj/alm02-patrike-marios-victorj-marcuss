@@ -46,7 +46,7 @@ public class Translator {
                 properties.load(new FileInputStream(propertiesPath));
             }
             else {
-                properties.load(new FileInputStream("alm-spring-prova-0.0.1-SNAPSHOT" + separator + "BOOT-INF" + separator + "classes" + separator + "fortune.properties"));
+                properties.load(new FileInputStream("alm-spring-prova-0.0.1-SNAPSHOT.jar" + separator + "BOOT-INF" + separator + "classes" + separator + "fortune.properties"));
             }
         }
         catch (Exception e){
