@@ -3,7 +3,10 @@ package com.example.almspringprova;
 
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
@@ -37,9 +40,11 @@ public class Translator {
 
     public String getPropertiesRightListAsString(String selectedList) { // we have many list fortune we have to select the right one!
         Properties properties = new Properties();
+        InputStream in = getClass().getResourceAsStream("/fortune.properties");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
         try {
-            properties.load(new FileInputStream(propertiesPath));
+            properties.load(reader);
         }
         catch (Exception e){
             System.out.println("Properties file not found");
@@ -55,7 +60,4 @@ public class Translator {
         return elements.get(element);
     }
 
-    public void setPropertiesPath(String propertiesPath) {
-        this.propertiesPath = propertiesPath;
-    }
 }

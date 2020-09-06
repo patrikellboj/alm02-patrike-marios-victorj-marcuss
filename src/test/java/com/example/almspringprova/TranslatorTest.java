@@ -30,7 +30,7 @@ public class TranslatorTest {
         assertNotNull(translator.getPropertiesRightListAsString("male_msg"));
         assertNull(translator.getPropertiesRightListAsString("igelkottar_msg"));
 
-        translator.setPropertiesPath("somethingElse");
+        // translator.setPropertiesPath("somethingElse");
 
         assertNull(translator.getPropertiesRightListAsString("female_msg"));
         assertNull(translator.getPropertiesRightListAsString("male_msg"));
