@@ -30,10 +30,9 @@ public class TranslatorTest {
         assertNotNull(translator.getPropertiesRightListAsString("male_msg"));
         assertNull(translator.getPropertiesRightListAsString("igelkottar_msg"));
 
-        // translator.setPropertiesPath("somethingElse");
-
-//        assertNull(translator.getPropertiesRightListAsString("female_msg"));
-//        assertNull(translator.getPropertiesRightListAsString("male_msg"));
+        translator.propertiesFile = "missing.properties";
+        assertNull(translator.getPropertiesRightListAsString("hej"));
+        assertNull(translator.getPropertiesRightListAsString("då"));
     }
 
     @Test
@@ -46,8 +45,6 @@ public class TranslatorTest {
             assertEquals(translator.splitStringAndGetRightElement(unsplittedString, i), splittedString.get(i));
             System.out.println(splittedString.get(i));
         }
-
-
 
     }
 
