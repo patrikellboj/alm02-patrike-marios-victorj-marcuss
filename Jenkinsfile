@@ -2,6 +2,10 @@
     agent {
         docker{ image 'rasilva1986/java-maven:alm' }
     }
+    
+    parameters{
+        choice (name: 'DEPLOY_ENV', choices:['int', 'stage','prod'], description:'Target environment')
+    }
 
     stages {
         stage('Build'){
